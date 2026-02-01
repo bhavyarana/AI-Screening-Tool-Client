@@ -47,7 +47,9 @@ export default function JobCard({ job, onDeleted }) {
       </button>
 
       <h2 className="font-semibold text-lg">{job.jobRole}</h2>
-      <p className="text-sm text-gray-600">Experience: {job.experience}</p>
+      <p className="text-sm text-gray-600">
+        Experience: {job.experience} years
+      </p>
     </div>
   );
 }

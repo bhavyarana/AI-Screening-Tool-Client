@@ -24,9 +24,9 @@ export default function Home() {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto">
+    <div className="p-6 max-w-4xl mx-auto">
       <textarea
-        className="w-full border p-3"
+        className="w-full border p-3 rounded min-h-90"
         rows="5"
         placeholder="Enter client requirement"
         value={text}
@@ -37,7 +37,7 @@ export default function Home() {
       <button
         onClick={submitHandler}
         disabled={loading}
-        className="bg-black text-white px-4 py-2 mt-3 disabled:opacity-60"
+        className="bg-black text-white px-4 py-2 mt-3 disabled:opacity-60 cursor-pointer"
       >
         {loading ? "Processing..." : "Submit"}
       </button>
