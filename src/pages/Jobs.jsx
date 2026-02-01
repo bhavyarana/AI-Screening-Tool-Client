@@ -5,14 +5,19 @@ import JobCard from "../components/JobCard";
 export default function Jobs() {
   const [jobs, setJobs] = useState([]);
 
+  const fetchJobs = async () => {
+    const res = await getJobs();
+    setJobs(res.jobs);
+  };
+
   useEffect(() => {
-    getJobs().then((res) => setJobs(res.jobs));
+    fetchJobs();
   }, []);
 
   return (
     <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
       {jobs.map((job) => (
-        <JobCard key={job._id} job={job} />
+        <JobCard key={job._id} job={job} onDeleted={fetchJobs} />
       ))}
     </div>
   );

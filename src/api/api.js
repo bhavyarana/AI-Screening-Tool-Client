@@ -62,15 +62,38 @@ export const uploadResume = async (jobId, file) => {
   return res.data;
 };
 
-// export const uploadResume = async (file) => {
-//   const formData = new FormData();
-//   formData.append("resume", file);
+export const startCandidateCall = async (candidateId) => {
+  try {
+    const res = await axios.post(
+      `http://localhost:5000/twilio/call/${candidateId}`,
+    );
+    return res.data;
+  } catch (err) {
+    throw err.response?.data?.error || "Failed to start call";
+  }
+};
 
-//   const res = await API.post("/api/resume/upload", formData, {
-//     headers: {
-//       "Content-Type": "multipart/form-data",
-//     },
-//   });
+export const getJobInfo = async (jobId) => {
+  const res = await API.get(`/job/${jobId}/info`);
+  return res.data;
+};
 
-//   return res.data;
-// };
+export const updateJobInfo = async (jobId, data) => {
+  const res = await API.put(`/job/${jobId}`, data);
+  return res.data;
+};
+
+export const addScreeningQuestion = async (jobId, question) => {
+  const res = await API.post(`/job/${jobId}/question`, { question });
+  return res.data;
+};
+
+export const removeScreeningQuestion = async (jobId, index) => {
+  const res = await API.delete(`/job/${jobId}/question/${index}`);
+  return res.data;
+};
+
+export const deleteJob = async (jobId) => {
+  const res = await API.delete(`/job/${jobId}`);
+  return res.data;
+};

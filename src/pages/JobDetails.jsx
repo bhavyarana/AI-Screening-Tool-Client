@@ -61,6 +61,7 @@ export default function JobDetails() {
           type="file"
           accept="application/pdf"
           onChange={(e) => setFile(e.target.files[0])}
+          className="cursor-pointer"
         />
         <button
           onClick={uploadHandler}
@@ -71,7 +72,7 @@ export default function JobDetails() {
       </div>
 
       {/* Candidates */}
-      <CandidateTable candidates={candidates} />
+      <CandidateTable candidates={candidates} refresh={fetchCandidates} />
     </div>
   );
 }
