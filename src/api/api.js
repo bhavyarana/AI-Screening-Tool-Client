@@ -97,3 +97,8 @@ export const deleteJob = async (jobId) => {
   const res = await API.delete(`/job/${jobId}`);
   return res.data;
 };
+
+export const getCandidateTranscript = async (candidateId) => {
+  const res = await axios.get(`/api/candidate/${candidateId}/transcript`);
+  return res.data;
+};
