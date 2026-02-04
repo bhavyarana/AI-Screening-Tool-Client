@@ -23,7 +23,8 @@ export default function CandidateTable({ candidates, refresh }) {
           <th>Name</th>
           <th>Phone</th>
           <th>Email</th>
-          <th>Status</th>
+          <th>Screening Status</th>
+          <th>Call Status</th>
           <th>Call</th>
         </tr>
       </thead>
@@ -40,6 +41,7 @@ export default function CandidateTable({ candidates, refresh }) {
             <td>{c.phone}</td>
             <td>{c.email}</td>
             <td>{c.screeningStatus}</td>
+            <td>{c.callStatus}</td>
             <td>
               <button
                 disabled={
